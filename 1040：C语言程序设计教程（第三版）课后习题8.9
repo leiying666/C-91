@@ -1,0 +1,49 @@
+Description
+编写一函数，由实参传来一个字符串，统计此字符串中字母、数字、空格和其它字符的个数，在主函数中输入字符串以及输出上述结果。 只要结果，别输出什么提示信息。
+Input
+一行字符串
+Output
+统计数据，4个数字，每个数字后面一个空格。
+Sample Input
+!@#$%^QWERT    1234567
+Sample Output
+5 7 4 6
+
+#include<stdio.h>
+
+void Tj(char a[], int* n1, int* n2, int* n3, int* n4)
+{
+	int i = 0;
+	while (a[i] != '\0')
+	{
+		if ((a[i] >= 'A' && a[i] <= 'Z') || (a[i] >= 'a' && a[i] <= 'z'))//这条语句同时出现&&和||，根据运算顺序&&比||优先，应该先分别加括号运算，再整体运算，否则会出错
+		{
+			(*n1)++;
+			i++;
+		}
+		else if (a[i] >= '0' && a[i] <= '9')
+		{
+			(*n2)++;
+			i++;
+		}
+		else if (a[i] == ' ')
+		{
+			(*n3)++;
+			i++;
+		}
+		else
+		{
+			(*n4)++;
+			i++;
+		}
+	}
+}
+int main()
+{
+	char a[100] = { 0 };
+	gets(a);
+	int n1=0, n2=0, n3=0, n4=0;
+	Tj(a,&n1,&n2,&n3,&n4);
+	printf("%d %d %d %d\n", n1, n2, n3, n4);
+	return 0;
+}
