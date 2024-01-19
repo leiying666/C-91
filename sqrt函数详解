@@ -1,0 +1,27 @@
+C语言在中<math.h>中sqrt（）函数的使用：
+
+功 能: 计算一个非负实数的平方根
+函数原型: 在VC6.0中的math.h头文件的函数原型为double sqrt(double);
+说明：sqrt系Square Root Calculations（平方根计算），通过这种运算可以考验CPU的浮点能力。
+头文件：math
+
+特别注意！！！
+sqrt使用时大多需要要强制类型转化，因为sqrt只支持double和float类型，
+可以这样
+c=(int) sqrt((double)aa+bb);或者c=(int) sqrt((float)aa+bb);
+
+如下代码是对所操作的数进行开平方操作。
+
+  #include <stdio.h>
+    #include <math.h>//添加数学函数库
+     
+    int main()
+    {
+    	double a = 9.0;
+     
+    	printf("%lf\n",sqrt(a)); //3.000000
+     
+    	printf("%.8lf\n",1+2*sqrt(3)/(5-0.1));//其中sqrt（）为计算平方根的函数
+     
+    	return  0;
+    }
