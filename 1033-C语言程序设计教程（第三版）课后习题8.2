@@ -1,0 +1,40 @@
+求一元二次方程 ax^2+bx+c=0 的根，用三个函数分别求当b^2-4ac大于0、等于0、和小于0时的根，并输出结果。从主函数输入a、b、c的值。结果保留三位小数。
+Input
+一元二次方程的系数a, b, c (|a|, |b|, |c| < 10^5)
+Output
+x1=? x2=?
+Sample Input
+4 1 1
+Sample Output
+x1=-0.125+0.484i x2=-0.125-0.484i
+
+#include<math.h>
+#include<stdio.h>
+
+int main()
+{
+	float a, b, c;
+	scanf("%f%f%f", &a, &b, &c);
+	float tmp = b * b - 4 * a * c;
+	float x1, x2;
+	if (tmp > 0)
+	{
+		x1 = (-b + sqrt(tmp)) / 2 * a;
+		x2 = (-b - sqrt(tmp)) / 2 * a;
+		printf("x1=%.3f x2=%.3f", x1, x2);
+
+	}
+	else if (tmp == 0)
+	{
+		x1 = (-b + sqrt(tmp)) / 2 * a;
+		x2 = (-b - sqrt(tmp)) / 2 * a;
+		printf("x1=%.3f x2=%3f", x1, x2);
+	}
+	else
+	{
+		tmp = sqrt( - tmp)/(2*a);
+		float x = -b / (2 * a);
+		printf("x1=%.3f+%.3fi x2=%.3f-%.3fi", x, tmp, x, tmp);
+	}
+	return 0;
+}
